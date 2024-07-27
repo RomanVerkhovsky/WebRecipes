@@ -4,3 +4,12 @@ from app import db
 from app.forms import LoginForm, RegistrationForm
 from app.models import User
 from urllib.parse import urlsplit
+
+
+bp = Blueprint('routes', __name__)
+
+
+@bp.route('/')
+@bp.route('/index')
+def index():
+    return render_template('index.html', title='Home')
