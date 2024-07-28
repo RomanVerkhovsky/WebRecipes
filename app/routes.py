@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
 from app import db
 from app.forms import LoginForm, RegistrationForm
-from app.models import User
+from app.models import User, Recipe
 from urllib.parse import urlsplit
 
 
@@ -25,7 +25,9 @@ def logout():
 @bp.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', title='Profile', name=current_user.username)
+
+    return render_template('profile.html', title='Profile', name=current_user.username,
+                           email=current_user.email)
 
 
 @bp.route('/login', methods=['GET', 'POST'])
@@ -72,3 +74,15 @@ def register():
         return redirect(url_for('routes.login'))
 
     return render_template('register.html', title='Register', form=form)
+
+
+@bp.route('/recipes', methods=['GET', 'POST'])
+def recipes():
+    list_recipes = Recipe.query.all()
+    return render_template('recipes.html', title="list of recipes", list_recipes=list_recipes)
+
+
+@bp.route('/new_recipe', methods=['GET', 'POST'])
+def new_recipe():
+
+    return render_template('new_recipe.html', title="new_recipe")

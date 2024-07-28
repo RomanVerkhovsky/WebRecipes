@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="form-recipe">
+
+
+
+
+
+
+        <nav>
+            <div>
+                {% if list_recipes %}
+                    <ul>
+                        {% for dish in list_recipes %}
+                            <li>{{ dish.title }}</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <h1>Recipes not found...</h1>
+                {% endif %}
+            </div>
+        </nav>
+
+        <a class="w-100 btn btn-lg btn-primary" href="{{ url_for('routes.new_recipe') }}">Add Recipe</a>
+        <a class="w-100 btn btn-lg btn-secondary" href="{{ url_for('routes.profile') }}">Back to Profile</a>
+
+    </div>
+{% endblock %}

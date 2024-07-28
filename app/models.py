@@ -23,3 +23,13 @@ class User(UserMixin, db.Model):
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
+
+
+class Recipe(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(64), nullable=False)
+    category = db.Column(db.String(64))
+    ingredients = db.Column(db.String(128))
+    steps = db.Column(db.String(128))
+    cook_time = db.Column(db.String(12864))
+    user_id = db.Column(db.Integer, unique=True, nullable=False)

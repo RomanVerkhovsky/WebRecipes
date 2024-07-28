@@ -22,3 +22,11 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Пользователь не зарегистрирован! Введите другой email.')
+
+
+class RecipeForm(FlaskForm):
+    title = StringField("Dish", validators=[DataRequired()])
+    category = StringField("Category", validators=[DataRequired()])
+    ingredients = StringField("Ingredients", validators=[DataRequired()])
+    steps = StringField("Steps", validators=[DataRequired()])
+    cook_time = StringField("Cook time", validators=[DataRequired()])

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    <div class="form-recipe">
+        <h1>Creating recipe</h1>
+        <a class="w-100 btn btn-lg btn-primary" href="{{ url_for('routes.recipes') }}">Save Recipe</a>
+        <a class="w-100 btn btn-lg btn-secondary" href="{{ url_for('routes.recipes') }}">Back to Recipes</a>
+
+    </div>
+{% endblock %}

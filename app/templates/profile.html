@@ -4,8 +4,7 @@
 {% block content %}
     <div class="form-signin">
         <h1>Welcome, {{ name }}!</h1>
-
+        <a class="w-100 btn btn-lg btn-primary" href="{{ url_for('routes.recipes') }}">Recipes</a>
         <a class="w-100 btn btn-lg btn-secondary" href="{{ url_for('routes.logout') }}">Log out</a>
-
     </div>
 {% endblock %}
