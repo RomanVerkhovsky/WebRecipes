@@ -7,5 +7,31 @@
 </head>
 <body>
 
+    <div class="bg"></div>
+    <div class="container">
+
+    <div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li>
+                            <div class="glass">
+                                <h4 align="center">{{ message }}</h4>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <div class="glass">
+                <h1 align="center">Recipe Book</h1>
+        </div>
+
+        {% block content %}{% endblock %}
+    </div>
+            </div>
+
 </body>
 </html>

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="form-signin">
+        <a class="w-100 btn btn-lg btn-primary" href="{{ url_for('routes.login') }}">Login</a>
+        <a class="w-100 btn btn-lg btn-secondary" href="{{ url_for('routes.register') }}">Register</a>
+    </div>
+{% endblock %}
