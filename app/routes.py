@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
 from app import db
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm, RecipeForm
 from app.models import User, Recipe
 from urllib.parse import urlsplit
 
@@ -85,4 +85,17 @@ def recipes():
 @bp.route('/new_recipe', methods=['GET', 'POST'])
 def new_recipe():
 
-    return render_template('new_recipe.html', title="new_recipe")
+    form = RecipeForm()
+
+    if form.validate_on_submit():
+        recipe = Recipe(title=form.title.data, category=form.category.data, ingredients=form.ingredients.data,
+                        steps=form.steps.data, time=form.time.data, user_id=current_user.id)
+
+        db.session.add(recipe)
+        db.session.commit()
+
+        flash('Блюдо успешно добавлено в список рецептов!')
+
+        return redirect(url_for('routes.recipes'))
+
+    return render_template('new_recipe.html', title="new_recipe", form=form)

@@ -44,7 +44,7 @@ body {
 
 .form-signin {
   width: 100%;
-  max-width: 330px;
+  max-width: 550px;
   margin: auto;
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(10px);
@@ -261,4 +261,8 @@ ul {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
+}
+
+.cook_time {
+    type: time
 }

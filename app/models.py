@@ -31,5 +31,5 @@ class Recipe(db.Model):
     category = db.Column(db.String(64))
     ingredients = db.Column(db.String(128))
     steps = db.Column(db.String(128))
-    cook_time = db.Column(db.String(12864))
+    time = db.Column(db.String(12864))
     user_id = db.Column(db.Integer, unique=True, nullable=False)

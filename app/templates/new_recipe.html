@@ -1,11 +1,58 @@
 {% extends "base.html" %}
 
-
 {% block content %}
-    <div class="form-recipe">
-        <h1>Creating recipe</h1>
-        <a class="w-100 btn btn-lg btn-primary" href="{{ url_for('routes.recipes') }}">Save Recipe</a>
-        <a class="w-100 btn btn-lg btn-secondary" href="{{ url_for('routes.recipes') }}">Back to Recipes</a>
+    <div class="form-signin">
+        <h1 class="h3">Creating recipe</h1>
+        <form method="POST" action="{{ url_for('routes.new_recipe') }}">
+            {{ form.hidden_tag() }}
+            <div class="form-floating">
+                {{ form.title(class="form-control", placeholder="Title", required=True) }}
+                <label for="floatingInput">Title</label>
+                {% for error in form.title.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
 
+            <div class="form-floating">
+                {{ form.category(class="form-control", placeholder="Category", required=True) }}
+                <label for="floatingInput">Category</label>
+                {% for error in form.category.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-floating">
+                {{ form.ingredients(class="form-control", placeholder="Ingredients", required=True) }}
+                <label for="floatingInput">Ingredients</label>
+                {% for error in form.ingredients.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-floating">
+                {{ form.steps(class="form-control", placeholder="Steps", required=True) }}
+                <label for="floatingInput">Steps</label>
+                {% for error in form.steps.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-floating">
+                {{ form.time(class="form-control", type="time", placeholder="Time", required=True) }}
+                <label for="floatingInput">Time</label>
+                {% for error in form.steps.errors %}
+                    <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+
+            <div class="form-floating">
+                {{ form.add(class="w-100 btn btn-lg btn-primary") }}
+            </div>
+
+            <div>
+                <a class="w-100 btn btn-lg btn-secondary" href="{{ url_for('routes.recipes') }}">Back to Recipes</a>
+            </div>
+
+        </form>
     </div>
 {% endblock %}

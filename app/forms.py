@@ -29,4 +29,5 @@ class RecipeForm(FlaskForm):
     category = StringField("Category", validators=[DataRequired()])
     ingredients = StringField("Ingredients", validators=[DataRequired()])
     steps = StringField("Steps", validators=[DataRequired()])
-    cook_time = StringField("Cook time", validators=[DataRequired()])
+    time = StringField("Cook time", validators=[DataRequired()])
+    add = SubmitField('Add Recipe')
