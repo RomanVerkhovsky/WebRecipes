@@ -32,4 +32,4 @@ class Recipe(db.Model):
     ingredients = db.Column(db.String(128))
     steps = db.Column(db.String(128))
     time = db.Column(db.String(12864))
-    user_id = db.Column(db.Integer, unique=True, nullable=False)
+    user_id = db.Column(db.Integer, nullable=False)

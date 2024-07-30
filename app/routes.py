@@ -10,26 +10,6 @@ bp = Blueprint('routes', __name__)
 
 
 @bp.route('/')
-@bp.route('/index')
-def index():
-    return render_template('index.html', title='Home')
-
-
-@bp.route('/logout')
-def logout():
-    logout_user()
-
-    return redirect(url_for('routes.index'))
-
-
-@bp.route('/profile')
-@login_required
-def profile():
-
-    return render_template('profile.html', title='Profile', name=current_user.username,
-                           email=current_user.email)
-
-
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -55,6 +35,13 @@ def login():
     return render_template('login.html', title='Sign In', form=form)
 
 
+@bp.route('/logout')
+def logout():
+    logout_user()
+
+    return redirect(url_for('routes.login'))
+
+
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
@@ -76,10 +63,13 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-@bp.route('/recipes', methods=['GET', 'POST'])
-def recipes():
+@bp.route('/profile')
+@login_required
+def profile():
     list_recipes = Recipe.query.all()
-    return render_template('recipes.html', title="list of recipes", list_recipes=list_recipes)
+
+    return render_template('profile.html', title='Profile', name=current_user.username,
+                           email=current_user.email, list_recipes=list_recipes)
 
 
 @bp.route('/new_recipe', methods=['GET', 'POST'])
@@ -96,6 +86,11 @@ def new_recipe():
 
         flash('Блюдо успешно добавлено в список рецептов!')
 
-        return redirect(url_for('routes.recipes'))
+        return redirect(url_for('routes.profile'))
 
     return render_template('new_recipe.html', title="new_recipe", form=form)
+
+
+@bp.route('/recipe', methods=['GET', 'POST'])
+def recipe():
+    pass

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div class="form-signin">
+    <div class="form-recipe">
         <h1 class="h3">Creating recipe</h1>
         <form method="POST" action="{{ url_for('routes.new_recipe') }}">
             {{ form.hidden_tag() }}
@@ -50,7 +50,7 @@
             </div>
 
             <div>
-                <a class="w-100 btn btn-lg btn-secondary" href="{{ url_for('routes.recipes') }}">Back to Recipes</a>
+                <a class="w-100 btn btn-lg btn-secondary" href="{{ url_for('routes.profile') }}">Back</a>
             </div>
 
         </form>
