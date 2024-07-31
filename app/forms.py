@@ -5,6 +5,9 @@ from app.models import User
 
 
 class LoginForm(FlaskForm):
+    """
+    Форма для заполнения данных на вход существующего пользователя
+    """
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
@@ -12,6 +15,10 @@ class LoginForm(FlaskForm):
 
 
 class RegistrationForm(FlaskForm):
+    """
+    Форма для заполнения данных на добавление нового пользователя
+    """
+
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -25,6 +32,9 @@ class RegistrationForm(FlaskForm):
 
 
 class RecipeForm(FlaskForm):
+    """
+    Форма для заполнения данных на добавление нового блюда
+    """
     title = StringField("Dish", validators=[DataRequired()])
     category = StringField("Category", validators=[DataRequired()])
     ingredients = StringField("Ingredients", validators=[DataRequired()])

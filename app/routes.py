@@ -12,6 +12,10 @@ bp = Blueprint('routes', __name__)
 @bp.route('/')
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
+    """
+    Проверка введенных данных и вход существующего пользователя
+    :return:
+    """
     if current_user.is_authenticated:
         return redirect(url_for('routes.profile'))
 
@@ -44,6 +48,10 @@ def logout():
 
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
+    """
+    Проверка данных н регистрацию и добавление в базу данных нового пользователя
+    :return:
+    """
     if current_user.is_authenticated:
         return redirect(url_for('routes.profile'))
 
@@ -66,7 +74,12 @@ def register():
 @bp.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
+    """
+    Отображение страницы профиля, проверка нажатия кнопки удаления и удаление рецепта с базы данных
+    :return:
+    """
 
+    # проверка нажатия кнопки удаления и удаление рецепта с базы данных
     if request.args.get('delete') == "delete":
 
         recipe_id = request.args.get('recipe')
@@ -76,6 +89,7 @@ def profile():
         db.session.delete(recipe_on_del)
         db.session.commit()
 
+    # считывание всех рецептов с бд и передача на html страницу для отображения
     list_recipes = Recipe.query.all()
 
     return render_template('profile.html', title='Profile', name=current_user.username,
@@ -90,6 +104,10 @@ def settings():
 
 @bp.route('/new_recipe', methods=['GET', 'POST'])
 def new_recipe():
+    """
+    Добавление нового рецепта
+    :return:
+    """
 
     form = RecipeForm()
 
@@ -109,6 +127,10 @@ def new_recipe():
 
 @bp.route('/recipe', methods=['GET', 'POST'])
 def recipe():
+    """
+    Отображение нового рецепта
+    :return:
+    """
 
     recipe_id = request.args.get('recipe')
 
