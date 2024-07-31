@@ -227,6 +227,27 @@ ul {
     background: rgba(255,255,255,0.9);
   }
 
+    & vertical-menu {
+        width: None;
+    height: 200px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(100 0% 50%);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.2);
+    border-left: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+    margin-top: 0px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    }
+
+
+
   .form-check {
     display: flex;
     align-items: center;
@@ -305,6 +326,27 @@ ul {
   .floated {
     float: left;
     margin-right: 5px
+  }
+
+  .vertical-menu-recipe {
+    width: None;
+    height: 200px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(100 0% 50%);
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.2);
+    border-left: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
+    margin-top: 0px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+  }
+
   }
 }
 

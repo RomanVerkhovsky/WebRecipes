@@ -93,4 +93,9 @@ def new_recipe():
 
 @bp.route('/recipe', methods=['GET', 'POST'])
 def recipe():
-    pass
+
+    recipe_id = request.args.get('recipe')
+
+    current_recipe = Recipe.query.filter_by(id=int(recipe_id)).first()
+
+    return render_template('recipe.html', title='recipe', recipe=current_recipe)
