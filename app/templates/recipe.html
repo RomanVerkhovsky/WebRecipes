@@ -5,16 +5,20 @@
         <form>
             <nav>
                 <div>
-                    <h3>Recipe</h3>
-
-                    <label class="form-control">Category:<br>{{ recipe.category }}</label>
-                    <textarea class="form-control">Ingredients: {{ recipe.ingredients }}</textarea>
-                    <textarea class="form-control">Steps: {{ recipe.steps }}</textarea>
-                    <label class="form-control">Time:<br>{{ recipe.time }}</label>
-
+                    <h1>{{ recipe.title }}</h1>
+                    <h5>Category</h5>
+                    <label class="form-control" style="text-align: center;">{{ recipe.category }}</label>
+                    <h5>Ingredients</h5>
+                    <textarea class="form-control" style="text-align: center;">{{ recipe.ingredients }}</textarea>
+                    <h5>Steps</h5>
+                    <textarea class="form-control" style="text-align: center;">{{ recipe.steps }}</textarea>
+                    <h5>Time</h5>
+                    <label class="form-control" style="text-align: center;">{{ recipe.time }}</label>
+                <div style="margin-top: 20px;">
                     <a class="w-100 btn btn-lg btn-primary" href="{{ url_for('routes.profile') }}">Save change</a>
                     <a class="w-100 btn btn-lg btn-primary" href="{{ url_for('routes.profile') }}">Delete recipe</a>
                     <a class="w-100 btn btn-lg btn-primary" href="{{ url_for('routes.profile') }}">Back</a>
+                </div>
                 </div>
             </nav>
         </form>
