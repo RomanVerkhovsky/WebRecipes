@@ -5,8 +5,8 @@
     <div class="form-recipe">
         <form>
             <h1>Welcome, {{ name }}!</h1>
-                <a class="w-100 btn btn-lg btn" style="margin-top: 1px" href="{{ url_for('routes.logout') }}">Settings</a>
-                <a class="w-100 btn btn-lg btn" style="margin-top: 1px" href="{{ url_for('routes.logout') }}">Log out</a>
+                <a class="w-100 btn btn-lg btn" style="margin-top: 1px; text-shadow: 1px 1px 2px green;" href="{{ url_for('routes.settings') }}">Settings</a>
+                <a class="w-100 btn btn-lg btn" style="margin-top: 1px; text-shadow: 1px 1px 2px green;" href="{{ url_for('routes.logout') }}">Log out</a>
         </form>
     </div>
 
@@ -22,19 +22,22 @@
                         <ul>
                             {% for recipe in list_recipes %}
                             <li>
-                                <a href="{{ url_for('routes.recipe', recipe=recipe.id) }}">{{ recipe.title }}</a>
+                                <a style="font-size: 150%; text-shadow: purple 1px 0 10px;" href="{{ url_for('routes.recipe', recipe=recipe.id) }}">{{ recipe.title }}</a>
                             </li>
                             {% endfor %}
                         </ul>
                     </div>
                     {% else %}
                     <h1>Recipes not found...</h1>
+                        <div class="vertical-menu">
+                            <h1>Recipes not found...</h1>
+                        </div>
                     {% endif %}
                 </div>
             </nav>
 
             <div>
-                <a class="w-100 btn btn-lg btn-primary" style="margin-top: 1px" href="{{ url_for('routes.new_recipe') }}">Add recipe</a>
+                <a class="w-100 btn btn-lg btn-primary" style="margin-top: 1px; text-shadow: 1px 1px 2px purple;" href="{{ url_for('routes.new_recipe') }}">Add Recipe</a>
             </div>
         <form>
     </div>

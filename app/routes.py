@@ -63,13 +63,29 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-@bp.route('/profile')
+@bp.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
+
+    if request.args.get('delete') == "delete":
+
+        recipe_id = request.args.get('recipe')
+
+        recipe_on_del = Recipe.query.filter_by(id=int(recipe_id)).first()
+
+        db.session.delete(recipe_on_del)
+        db.session.commit()
+
     list_recipes = Recipe.query.all()
 
     return render_template('profile.html', title='Profile', name=current_user.username,
                            email=current_user.email, list_recipes=list_recipes)
+
+
+@bp.route('/settings', methods=['GET', 'POST'])
+def settings():
+
+    return render_template('settings.html', title="Settings")
 
 
 @bp.route('/new_recipe', methods=['GET', 'POST'])
