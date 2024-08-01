@@ -16,7 +16,8 @@
                     <label class="form-control" style="text-align: center;">{{ recipe.time }}</label>
 
                 <div style="margin-top: 20px;">
-                    <a class="w-100 btn btn-lg btn-primary" style="text-shadow: 1px 1px 2px purple;" href="{{ url_for('routes.profile', delete='delete', recipe=recipe.id)}}">Delete recipe</a>
+                    <a class="w-100 btn btn-lg btn-primary" style="text-shadow: 1px 1px 2px purple;"
+                       href="{{ url_for('routes.profile', delete='delete', recipe=recipe.id)}}">Delete recipe</a>
                     <a class="w-100 btn btn-lg btn-primary" style="text-shadow: 1px 1px 2px purple;" href="{{ url_for('routes.profile') }}">Back</a>
                 </div>
                 </div>

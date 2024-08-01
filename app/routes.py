@@ -99,7 +99,7 @@ def profile():
 @bp.route('/settings', methods=['GET', 'POST'])
 def settings():
 
-    return render_template('settings.html', title="Settings")
+    return render_template('settings.html', title="Settings", user=current_user)
 
 
 @bp.route('/new_recipe', methods=['GET', 'POST'])

@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+
     <div class="form-recipe">
-        <h1>Profile Settings</h1>
+        <form>
+            <h1>Account</h1>
+            <h5>Email</h5>
+            <label class="form-control" style="text-align: center;">{{ user.email }}></label>
+            <h5>Name</h5>
+            <label class="form-control" style="text-align: center;">{{ user.username }}</label>
+            <a class="w-100 btn btn-lg btn-primary" style="margin-top: 5px; text-shadow: 3px 4px 3px purple" href="{{ url_for('routes.profile') }}">Back</a>
+        </form>
     </div>
+
 {% endblock %}

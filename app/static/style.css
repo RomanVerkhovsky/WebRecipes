@@ -243,7 +243,7 @@ ul {
   }
 
     & vertical-menu {
-        width: None;
+    width: None;
     height: 200px;
     overflow-y: auto;
     scrollbar-width: thin;
@@ -317,10 +317,15 @@ ul {
     text-align: center;
   }
 
+  .overflow-y {
+    color: black
+  }
+
   .vertical-menu a {
     color: white;
     display: block;
     padding: 12px;
+    margin-left: -22px;
     text-decoration: none;
   }
 
@@ -341,6 +346,10 @@ ul {
   .floated {
     float: left;
     margin-right: 5px
+  }
+
+  .overflow-y::-webkit-scrollbar {
+    background: aquamarine;
   }
 
   .vertical-menu-recipe {

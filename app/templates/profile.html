@@ -4,9 +4,9 @@
 {% block content %}
     <div class="form-recipe">
         <form>
-            <h1>Welcome, {{ name }}!</h1>
-                <a class="w-100 btn btn-lg btn" style="margin-top: 1px; text-shadow: 1px 1px 2px green;" href="{{ url_for('routes.settings') }}">Settings</a>
-                <a class="w-100 btn btn-lg btn" style="margin-top: 1px; text-shadow: 1px 1px 2px green;" href="{{ url_for('routes.logout') }}">Log out</a>
+            <h1 style="margin-bottom: 0px;">Welcome, {{ name }}!</h1>
+                <a class="w-100 btn btn-lg btn" style="margin-top: 1px; text-shadow: 3px 4px 3px teal;" href="{{ url_for('routes.settings') }}">Account info</a>
+                <a class="w-100 btn btn-lg btn" style="margin-top: 1px; text-shadow: 3px 4px 3px teal;" href="{{ url_for('routes.logout') }}">Log out</a>
         </form>
     </div>
 
@@ -17,7 +17,7 @@
             <nav>
                 <div>
                     {% if list_recipes %}
-                    <h3>Recipes</h3>
+                    <h3 style="margin-bottom: 0px;">Recipes</h3>
                     <div class="vertical-menu">
                         <ul>
                             {% for recipe in list_recipes %}
@@ -37,7 +37,7 @@
             </nav>
 
             <div>
-                <a class="w-100 btn btn-lg btn-primary" style="margin-top: 1px; text-shadow: 1px 1px 2px purple;" href="{{ url_for('routes.new_recipe') }}">Add Recipe</a>
+                <a class="w-100 btn btn-lg btn-primary" style="margin-top: 1px; text-shadow: 2px 3px 3px purple;" href="{{ url_for('routes.new_recipe') }}">Add Recipe</a>
             </div>
         <form>
     </div>
