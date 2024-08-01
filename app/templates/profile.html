@@ -16,23 +16,20 @@
         <form method="POST" action="{{ url_for('routes.recipe') }}">
             <nav>
                 <div>
-                    {% if list_recipes %}
                     <h3 style="margin-bottom: 0px;">Recipes</h3>
                     <div class="vertical-menu">
-                        <ul>
-                            {% for recipe in list_recipes %}
-                            <li>
-                                <a style="font-size: 150%; text-shadow: purple 1px 0 10px;" href="{{ url_for('routes.recipe', recipe=recipe.id) }}">{{ recipe.title }}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
+                        {% if list_recipes %}
+                            <ul>
+                                {% for recipe in list_recipes %}
+                                    <li>
+                                        <a style="font-size: 150%; text-shadow: purple 1px 0 10px;" href="{{ url_for('routes.recipe', recipe=recipe.id) }}">{{ recipe.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <label style="font-size: 150%; color: aqua">Recipes not found...</label>
+                        {% endif %}
                     </div>
-                    {% else %}
-                    <h1>Recipes not found...</h1>
-                        <div class="vertical-menu">
-                            <h1>Recipes not found...</h1>
-                        </div>
-                    {% endif %}
                 </div>
             </nav>
 

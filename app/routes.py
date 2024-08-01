@@ -90,7 +90,7 @@ def profile():
         db.session.commit()
 
     # считывание всех рецептов с бд и передача на html страницу для отображения
-    list_recipes = Recipe.query.all()
+    list_recipes = Recipe.query.filter_by(user_id=current_user.id).all()
 
     return render_template('profile.html', title='Profile', name=current_user.username,
                            email=current_user.email, list_recipes=list_recipes)
